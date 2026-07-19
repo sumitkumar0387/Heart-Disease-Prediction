@@ -1,0 +1,76 @@
+import streamlit as st
+import pandas as pd
+import joblib
+model=joblib.load("heart_disease_model.pkl")
+
+st.set_page_config(
+    page_title="Heart Disease Prediction",
+    page_icon="❤️",
+    layout="wide"
+)
+
+st.title(" Heart Disease Prediction System")
+st.write("This app predicts whether a patient is likely to have heart disease.")
+
+st.info(" Fill all patient details correctly for better prediction.")
+
+st.sidebar.title("👨‍⚕️ Patient Details")
+st.sidebar.success("Enter patient information")
+age=st.sidebar.number_input("Age",min_value=1,max_value=120,value=25)
+sex=st.sidebar.selectbox("Gender",["Male","Female"])
+
+
+cp=st.selectbox("Chest Pain Type", [0, 1, 2, 3])
+
+trestbps = st.number_input("Resting Blood Pressure", 80, 250, 120)
+
+chol = st.number_input("Cholesterol", 100, 600, 200)
+
+fbs = st.selectbox("Fasting Blood Sugar", [0,1])
+
+restecg = st.selectbox("Rest ECG", [0,1,2])
+
+thalach = st.number_input("Maximum Heart Rate", 60,220,150)
+
+exang = st.selectbox("Exercise Induced Angina", [0,1])
+
+oldpeak = st.number_input("Old Peak",0.0,10.0,1.0)
+
+slope = st.selectbox("Slope",[0,1,2])
+
+ca = st.selectbox("Number of Major Vessels (CA)", [0,1,2,3,4])
+
+thal = st.selectbox("Thal",[0,1,2,3])
+
+if st.button("🔍 Predict Disease"):
+
+    input_data = pd.DataFrame({
+        "age":[age],
+        "sex":[1 if sex=="Male" else 0],
+        "cp":[cp],
+        "trestbps":[trestbps],
+        "chol":[chol],
+        "fbs":[fbs],
+        "restecg":[restecg],
+        "thalach":[thalach],
+        "exang":[exang],
+        "oldpeak":[oldpeak],
+        "slope":[slope],
+        "ca":[ca],
+        "thal":[thal]
+    })
+    st.divider()
+    st.subheader("📋 Prediction Result")
+    prediction = model.predict(input_data)
+    probability = model.predict_proba(input_data)
+    
+    if prediction[0] == 1:
+        st.error(" Heart Disease Detected")
+        st.write(f"Confidence: {probability[0][1]*100:.2f}%")
+    else:
+        st.success("✅ No Heart Disease")
+        st.write(f"Confidence: {probability[0][0]*100:.2f}%")
+        st.balloons()
+
+st.markdown("---")
+st.caption("Developed by Sumit Kumar ")
