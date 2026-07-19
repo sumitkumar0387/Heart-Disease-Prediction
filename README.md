@@ -132,9 +132,13 @@ Heart_Disease_Prediction/
 │── README.md
 │── eda.ipynb
 ```
-## Live Demo
+---
+
+## 🌐 Live Demo
 
 https://heart-disease-prediction-yzi48t6yaxwrygc3sbqn4e.streamlit.app/
+
+---
 ---
 
 ## 👨‍💻 Developer
