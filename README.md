@@ -129,14 +129,15 @@ streamlit run app.py
 ```
 
 Heart_Disease_Prediction/
-
-│── app.py
-│── heart.csv
-│── heart_disease_model.pkl
-│── requirements.txt
-│── README.md
-│── eda.ipynb
-│── .gitignore
+│
+├── app.py
+├── heart.csv
+├── heart_disease_model.pkl
+├── requirements.txt
+├── README.md
+├── eda.ipynb
+├── .gitignore
+├── screenshot.png
 ```
 ---
 
