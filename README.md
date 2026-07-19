@@ -97,7 +97,7 @@ EDA Included:
 Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Heart-Disease-Prediction.git
+git clone https://github.com/sumitkumar0387/Heart-Disease-Prediction.git
 ```
 
 Go to project folder
@@ -119,10 +119,15 @@ streamlit run app.py
 ```
 
 ---
+## 📷 Application Preview
+
+![Heart Disease Prediction App](screenshot.png)
+---
 
 ## 📁 Project Structure
 
 ```
+
 Heart_Disease_Prediction/
 
 │── app.py
@@ -131,6 +136,7 @@ Heart_Disease_Prediction/
 │── requirements.txt
 │── README.md
 │── eda.ipynb
+│── .gitignore
 ```
 ---
 
